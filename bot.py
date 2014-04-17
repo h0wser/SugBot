@@ -7,7 +7,7 @@ class SugBot:
 		self.load_config(cfgfile)
 
 	def load_config(self, cfgfile):
-		print "Loading config"
+		print("Loading config");
 		#open and parse json file
 		cf = open(cfgfile, "r")
 		config = json.load(cf)

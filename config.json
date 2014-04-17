@@ -7,8 +7,13 @@
 			"type": "call"
 		},
 		{
-			"chat_command": "!penis",
-			"response": "thursday",
+			"chat_command": "!week",
+			"response": "getweek",
+			"type": "call"
+		},
+		{
+			"chat_command": "!botname",
+			"response": "I'm billybob :)",
 			"type": "text"
 		}
 	]

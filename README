@@ -2,8 +2,8 @@ SubBot --- A fancy skype bot
 
 Features
 	* Custom commands (ex !day -> "It's Monday.")
-	* Timed messages (MOTD, Info messages)
-	* Op powers
+	* Timed messages (MOTD, Info messages) (not done)
+	* Op powers (not done)
 	* JSON config file
 
 Requirements
