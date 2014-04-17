@@ -1,6 +1,8 @@
 import Skype4Py
 import json
 import responses
+import datetime
+import time
 
 class SugBot:
 	def __init__(self, cfgfile):
@@ -17,6 +19,14 @@ class SugBot:
 		self.chatname = config['chatname']
 		self.commands = config['commands']
 
+		self.timed_messages = config['timed_messages']
+
+		for msg in self.timed_messages:
+				hour, minutes, seconds = msg['time'].split(":", 2)
+				hour = int(hour); minutes = int(minutes); seconds = int(seconds)
+				msg['time'] = datetime.time(hour, minutes, seconds)
+				msg['sent'] = msg['time'] < datetime.datetime.now().time()
+
 	def start(self):
 		print "Starting bot"
 		self.skype = Skype4Py.Skype()
@@ -24,6 +34,8 @@ class SugBot:
 
 		self.chat = self.skype.Chat(self.chatname)
 		self._setupEventHandlers()
+
+		self._handle_timed_messages();
 
 	def _setupEventHandlers(self):
 		self.skype.RegisterEventHandler('MessageStatus', self.message_handler)
@@ -46,5 +58,18 @@ class SugBot:
 			func = getattr(responses, self.commands[index]['response'])
 			response = func()
 
-		self.chat.SendMessage(response);
-		
+		self.chat.SendMessage(response)
+
+	def _handle_timed_messages(self):
+		while True:
+			for msg in self.timed_messages:
+				if msg['time'] < datetime.datetime.now().time() and msg['sent'] == False:
+					self.chat.SendMessage(msg['message'])
+					msg['sent'] = True
+
+			if (datetime.datetime.now().time() < datetime.time(0, 1, 30)):
+			 	for msg in self.timed_messages:
+			 		msg['sent'] = False
+
+			time.sleep(5)
+

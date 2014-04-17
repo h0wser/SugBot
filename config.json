@@ -15,6 +15,17 @@
 			"chat_command": "!botname",
 			"response": "I'm billybob :)",
 			"type": "text"
+		},
+		{
+			"chat_command": "!sandstorm",
+			"response": "DUNUNUNUNUNUNUNUNUNNNNNUNUNDUDNUDNDNUDNUDNDUNUDN",
+			"type": "text"	
+		}
+	],
+	"timed_messages": [
+		{
+			"message": "I just wanted to inform everyone, that it is now l33t",
+			"time": "13:37:00"
 		}
 	]
 }
