@@ -1,17 +1,24 @@
 import Skype4Py
+import json
 
-# Create an instance of the skype class
-skype = Skype4Py.Skype()
+class SugBot:
+	def __init__(self, cfgfile):
+		self.loadconfig(cfgfile)
 
-# Connect the skype object to the skype client
-skype.Attach()
+	def loadconfig(self, cfgfile):
+		print "Loading config"
+		#open and parse json file
+		cf = open(cfgfile, "r")
+		config = json.load(cf)
+		cf.close()
 
-for x in skype.RecentChats:
-	print x.Name
+		# assign stuff according to config
+		self.chatname = config['chatname']
 
-chatname = "#simonvmolzer/$fannynatta11;f553af0cfe503c07"
+	def start(self):
+		print "Starting bot"
+		self.skype = Skype4Py.Skype()
+		self.skype.Attach()
 
-# Obtain some information from the client and print it out
-print "Sending message in", chatname
-chat = skype.Chat(chatname)
-chat.SendMessage("Hello World!")
+		self.chat = self.skype.Chat(self.chatname)
+		self.chat.SendMessage("I'm in dude")
