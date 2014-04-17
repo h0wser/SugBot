@@ -1,5 +1,6 @@
 import Skype4Py
 import json
+import responses
 
 class SugBot:
 	def __init__(self, cfgfile):
@@ -38,5 +39,12 @@ class SugBot:
 			if (command == self.commands[i]['chat_command']):
 				index = i
 				break
+		response = ""
+		if self.commands[i]['type'] == "text":
+			response = self.commands[index]['response']
+		else:
+			func = getattr(responses, self.commands[index]['response'])
+			response = func()
 
-		self.chat.SendMessage(self.commands[i]['response'])
+		self.chat.SendMessage(response);
+		

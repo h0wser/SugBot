@@ -3,8 +3,8 @@
 	"commands": [
 		{
 			"chat_command": "!day",
-			"response": "thursday",
-			"type": "text"
+			"response": "getday",
+			"type": "call"
 		},
 		{
 			"chat_command": "!penis",
