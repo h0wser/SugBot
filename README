@@ -1,0 +1,11 @@
+SubBot --- A fancy skype bot
+
+Features
+	* Custom commands (ex !day -> "It's Monday.")
+	* Timed messages (MOTD, Info messages)
+	* Op powers
+	* JSON config file
+
+Requirements
+	* Skype for Linux
+	* Skype4Py
