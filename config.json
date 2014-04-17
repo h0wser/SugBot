@@ -1,3 +1,15 @@
 {
-	"chatname": "#simonvmolzer/$fannynatta11;f553af0cfe503c07"
+	"chatname": "#simonvmolzer/$fannynatta11;f553af0cfe503c07",
+	"commands": [
+		{
+			"chat_command": "!day",
+			"response": "thursday",
+			"type": "text"
+		},
+		{
+			"chat_command": "!penis",
+			"response": "thursday",
+			"type": "text"
+		}
+	]
 }
