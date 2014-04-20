@@ -11,5 +11,5 @@ Features
 
 Bugs
 ---
-* Responses are sent twice
+* ~~Responses are sent twice~~
 * Add error handling

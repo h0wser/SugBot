@@ -41,16 +41,19 @@ class SugBot:
 		self.skype.RegisterEventHandler('MessageStatus', self.message_handler)
 
 	def message_handler(self, Message, Status):
-		if (Message.Chat == self.chat) and (Status != Skype4Py.cmsSending):
+		if (Message.Chat == self.chat) and (Status == Skype4Py.cmsReceived):
 			if (Message.Body[0] == '!'):
 				self._parse_command(Message.Body)
 
 	def _parse_command(self, command):
 		index = 0
+		send = False
 		for i in range(0, len(self.commands)):
 			if (command == self.commands[i]['chat_command']):
 				index = i
+				send = True
 				break
+
 		response = ""
 		if self.commands[i]['type'] == "text":
 			response = self.commands[index]['response']
@@ -58,7 +61,8 @@ class SugBot:
 			func = getattr(responses, self.commands[index]['response'])
 			response = func()
 
-		self.chat.SendMessage(response)
+		if send:
+			self.chat.SendMessage(response)
 
 	def _handle_timed_messages(self):
 		while True:
