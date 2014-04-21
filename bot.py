@@ -3,6 +3,7 @@ import json
 import responses
 import datetime
 import time
+
 from logger import Logger
 
 class SugBot:
@@ -37,7 +38,14 @@ class SugBot:
 		self.chat = self.skype.Chat(self.chatname)
 		self._setupEventHandlers()
 
+		self.chat.SendMessage("Hiya everybody, I'm running and waiting for commands")
+
 		self._handle_timed_messages();
+
+	def exit(self):
+		self.logger.info("Bot Exiting")
+				
+		self.chat.SendMessage("I'm shutting off for whatever reason.")				
 
 	def _setupEventHandlers(self):
 		self.skype.RegisterEventHandler('MessageStatus', self.message_handler)
