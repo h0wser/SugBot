@@ -7,8 +7,8 @@ from logger import Logger
 
 class SugBot:
 	def __init__(self, cfgfile):
-		self.load_config(cfgfile)
 		self.logger = Logger()
+		self.load_config(cfgfile)
 
 	def load_config(self, cfgfile):
 		self.logger.info("Loading config")
