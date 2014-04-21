@@ -52,11 +52,13 @@ Every object in timed_messages has 2 properties: message and time
 
 The functions must return a string which will be the message sent to the chat.
 
+The _bot_ parameter is a reference to the bot to enable commands to query information about the bot, (for example to implement a _help_ command) 
+and to change the state of the bot (like _sleep for 5 minutes_).
 Functions can take in an _args_ variable that can be used to pass arguments to the command. The _args_ paramater is a list of arguments. 
 
 __Example:__
 
-	def foo(args)
+	def foo(bot, args)
 		bar = args[0]
 	return bar
 	

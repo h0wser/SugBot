@@ -64,7 +64,7 @@ class SugBot:
 			response = self.commands[index]['response']
 		else:
 			func = getattr(responses, self.commands[index]['response'])
-			response = func(args)
+			response = func(self, args)
 
 		if send:
 			self.chat.SendMessage(response)
