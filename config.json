@@ -12,6 +12,11 @@
 			"type": "call"
 		},
 		{
+			"chat_command": "!say",
+			"response": "say",
+			"type": "call"
+		},
+		{
 			"chat_command": "!botname",
 			"response": "I'm billybob :)",
 			"type": "text"

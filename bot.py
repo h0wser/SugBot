@@ -50,6 +50,9 @@ class SugBot:
 	def _parse_command(self, command):
 		index = 0
 		send = False
+		args = command.split(" ")
+		command = args.pop(0)
+
 		for i in range(0, len(self.commands)):
 			if (command == self.commands[i]['chat_command']):
 				index = i
@@ -61,7 +64,7 @@ class SugBot:
 			response = self.commands[index]['response']
 		else:
 			func = getattr(responses, self.commands[index]['response'])
-			response = func()
+			response = func(args)
 
 		if send:
 			self.chat.SendMessage(response)

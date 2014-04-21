@@ -5,9 +5,9 @@ Features
 ---
 
 * Add admin powers
-* Let commands have arguments
+* ~~Let commands have arguments~~
 * Hook up messages to events other then chat messages
-* Create a logger
+* ~~Create a logger~~
 
 Bugs
 ---

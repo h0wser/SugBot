@@ -52,10 +52,12 @@ Every object in timed_messages has 2 properties: message and time
 
 The functions must return a string which will be the message sent to the chat.
 
+Functions can take in an _args_ variable that can be used to pass arguments to the command. The _args_ paramater is a list of arguments. 
+
 __Example:__
 
-	def foo()
-		bar = "message"
+	def foo(args)
+		bar = args[0]
 	return bar
 	
 You can use any type of python code, in _responses.py_, to implement the message returned. Because of this, the possibilty of customization is endless.
