@@ -3,13 +3,15 @@ import json
 import responses
 import datetime
 import time
+from logger import Logger
 
 class SugBot:
 	def __init__(self, cfgfile):
 		self.load_config(cfgfile)
+		self.logger = Logger()
 
 	def load_config(self, cfgfile):
-		print("Loading config");
+		self.logger.info("Loading config")
 		#open and parse json file
 		cf = open(cfgfile, "r")
 		config = json.load(cf)
@@ -28,7 +30,7 @@ class SugBot:
 				msg['sent'] = msg['time'] < datetime.datetime.now().time()
 
 	def start(self):
-		print "Starting bot"
+		self.logger.info("Starting bot")
 		self.skype = Skype4Py.Skype()
 		self.skype.Attach()
 
@@ -76,4 +78,3 @@ class SugBot:
 			 		msg['sent'] = False
 
 			time.sleep(5)
-
