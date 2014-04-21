@@ -1,10 +1,10 @@
-SugBot --- A fancy skype bot
+SugBot - A fancy skype bot
 ========
 
 Features
 ----
 * Custom commands (ex !day -> "It's Monday.")
-* Timed messages (MOTD, Info messages) (not done)
+* Timed messages (MOTD, Info messages)
 * Op powers (not done)
 * JSON config file
 
@@ -18,13 +18,13 @@ Usage
 ---
 __Install/Download:__
 
-	clone git repo blabla
+	git clone https://github.com/h0wser/SugBot
 
 __Run:__
 
-	prompt> python main.py
+	python main.py
 
-This project is made using python 2.7 and not 3. Make sure that you use the correct python version when running.
+This project is made using python 2.7 and __not__ 3. Make sure that you use the correct python version when running.
 On arch for example, the program is run with:
 	
 	prompt> python2 main.py
@@ -54,7 +54,7 @@ The functions must return a string which will be the message sent to the chat.
 
 The _bot_ parameter is a reference to the bot to enable commands to query information about the bot, (for example to implement a _help_ command) 
 and to change the state of the bot (like _sleep for 5 minutes_).
-Functions can take in an _args_ variable that can be used to pass arguments to the command. The _args_ paramater is a list of arguments. 
+Functions can take in an _args_ variable that can be used to pass arguments to the command. The _args_ paramater is a list of arguments extracted from the command message. 
 
 __Example:__
 
